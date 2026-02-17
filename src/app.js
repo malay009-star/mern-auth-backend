@@ -38,7 +38,7 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: "https://mern-auth-frontend-2wdl.vercel.app",
+    origin: true,
     credentials: true,
   }),
 );
