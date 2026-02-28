@@ -46,9 +46,9 @@ export const loginUser = async (req, res) => {
       return res.status(401).json({ message: "User not found" });
     }
 
-    if (user.refreshToken) {
-      return res.status(401).json({ message: "User already logged in" });
-    }
+    // if (user.refreshToken) {
+    //   return res.status(401).json({ message: "User already logged in" });
+    // }
 
     const isPasswordCorrect = await bcrypt.compare(password, user.password);
     if (!isPasswordCorrect) {
