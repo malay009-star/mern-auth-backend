@@ -30,6 +30,7 @@ import cookieParser from "cookie-parser";
 import cors from "cors";
 import authRoutes from "./routes/auth.routes.js";
 import { connectDB } from "./db/index.js";
+import userRoutes from "./routes/user.routes.js";
 
 const app = express();
 
@@ -51,26 +52,6 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/auth", authRoutes);
+app.use("/api/users", userRoutes);
 
 export default app;
-
-
-
-// SEED ADMIN
-// import { User } from "../models/auth.model.js";
-// import bcrypt from "bcryptjs";
-
-// export const seedAdmin = async () => {
-//   const adminExists = await User.findOne({ role: "admin" });
-//   if (!adminExists) {
-//     const hashedPassword = await bcrypt.hash("admin123", 10);
-//     await User.create({
-//       username: "admin",
-//       email: "admin@company.com",
-//       password: hashedPassword,
-//       role: "admin",
-//       isVerified: true,
-//     });
-//     console.log("✅ Admin created");
-//   }
-// };
